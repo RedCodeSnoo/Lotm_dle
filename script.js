@@ -72,8 +72,8 @@ function renderGame(){
       const guessValue=guess[attr.key];
       const targetValue=targetChar[attr.key];
 
-      const isEmpty=!guessValue || guessValue==='None';
-      const isTargetEmpty=!targetValue || targetValue==='None';
+      const isEmpty = guessValue === -1 || guessValue === 'None';
+      const isTargetEmpty = targetValue === -1 || targetValue === 'None';
 
       let colorStatus='incorrect', displayValue='❌';
 

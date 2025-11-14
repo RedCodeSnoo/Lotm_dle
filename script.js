@@ -150,13 +150,10 @@ function handleGuess(){
   input.value='';
   document.getElementById('suggestions').classList.add('hidden');
 
-  let allCorrect=true;
-  ATTRIBUTES.forEach(attr=>{
-    if(compareAttributes(guessedChar[attr.key],targetChar[attr.key])!=='correct')
-      allCorrect=false;
-  });
+  if (guessedChar.name === targetChar.name) {
+    gameWon = true;
+  }
 
-  if(allCorrect) gameWon=true;
   else if(guesses.length>=20) gameOver=true;
 
   renderGame();

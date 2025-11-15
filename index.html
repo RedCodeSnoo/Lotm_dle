@@ -6,9 +6,7 @@
   <title>LOTM DLE ✨</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -29,6 +27,15 @@
           « Guess the character from <span class="text-yellow-300">Lord of Mysteries</span> ! »
         </p>
       </div>
+
+      <div class="mode-toggle">
+        <button class="mode-btn active" onclick="switchMode('daily')" id="dailyBtn">📅 Daily Challenge</button>
+        <button class="mode-btn inactive" onclick="switchMode('random')" id="randomBtn">🎲 Random Training</button>
+      </div>
+
+      <div id="globalStats" class="text-center text-sm text-gray-400 mb-4"></div>
+
+      <div id="statsDisplay" class="stats-display"></div>
 
       <div id="gameStatus" class="mb-6 text-center"></div>
 
@@ -55,8 +62,8 @@
 
     </div>
   </div>
+
   <script src="characters.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>

@@ -167,5 +167,8 @@ const CHARACTERS = [
     { id: 149, name: 'Old Kohler', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['❌'], epoch: 'Fifth Epoch' },
     { id: 150, name: 'Ray Bieber', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 1, affiliation: ['❌'], epoch: 'Fifth Epoch' },
     { id: 151, name: 'Rozanne', gender: 'Female', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 1, affiliation: ['❌'], epoch: 'Fifth Epoch' },
+
+    // New Add
     { id: 152, name: 'Reinette Tinekerr', gender: 'Female', species: ['Human'], pathway: ['Chained'], sequence: 2, volume: 3, affiliation: ['Church of the Fool'], epoch: 'Fifth Epoch' },
+    { id: 152, name: 'Bernadette Gustav', gender: 'Female', species: ['Human'], pathway: ['Hermit'], sequence: 2, volume: 2, affiliation: ['Pirate King'], epoch: 'Fifth Epoch' },
 ]

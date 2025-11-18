@@ -170,5 +170,5 @@ const CHARACTERS = [
 
     // New Add
     { id: 152, name: 'Reinette Tinekerr', gender: 'Female', species: ['Human'], pathway: ['Chained'], sequence: 2, volume: 3, affiliation: ['Church of the Fool'], epoch: 'Fifth Epoch' },
-    { id: 152, name: 'Bernadette Gustav', gender: 'Female', species: ['Human'], pathway: ['Hermit'], sequence: 2, volume: 2, affiliation: ['Pirate King'], epoch: 'Fifth Epoch' },
+    { id: 153, name: 'Bernadette Gustav', gender: 'Female', species: ['Human'], pathway: ['Hermit'], sequence: 2, volume: 2, affiliation: ['Pirate King'], epoch: 'Fifth Epoch' },
 ]

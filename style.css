@@ -1,3 +1,13 @@
+:root {
+  --color-gold: #ffd700;
+  --color-gold-dim: rgba(255, 215, 0, 0.3);
+  --color-gold-glow: rgba(255, 215, 0, 0.6);
+  --bg-dark: #1a103d;
+  --font-main: 'Inter', sans-serif;
+  --font-serif: 'Cinzel', serif;
+}
+
+/* --- Base & Reset --- */
 * {
   margin: 0;
   padding: 0;
@@ -5,19 +15,23 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #1a103d 0%, #0a0217 80%);
+  font-family: var(--font-main);
+  background: radial-gradient(circle at top, var(--bg-dark) 0%, #0a0217 80%);
   overflow-x: hidden;
   color: #fff;
   position: relative;
 }
 
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  letter-spacing: 1px;
+}
+
+/* --- Background Video & Overlay --- */
 #videoBackground {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   z-index: -2;
   pointer-events: none;
@@ -25,26 +39,20 @@ body {
 
 #videoOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(10, 2, 23, 0.6);
   z-index: -1;
   pointer-events: none;
 }
 
-h1, h2, h3 {
-  font-family: 'Cinzel', serif;
-  letter-spacing: 1px;
-}
-
+/* --- Effects & Animations --- */
 .glow {
   text-shadow: 0 0 10px #ffd700aa, 0 0 20px #ffd70055;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ffcf40, #e0b0ff, #ffd700);
+  background: linear-gradient(90deg, #ffcf40, #e0b0ff, var(--color-gold));
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -52,20 +60,15 @@ h1, h2, h3 {
 }
 
 @keyframes shimmer {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
 }
 
+/* Particles */
 .particles {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   overflow: hidden;
   z-index: 0;
   pointer-events: none;
@@ -73,44 +76,64 @@ h1, h2, h3 {
 
 .particle {
   position: absolute;
-  background: rgba(255, 215, 0, 0.6);
+  background: var(--color-gold-glow);
   border-radius: 50%;
   animation: float 10s linear infinite;
 }
 
 @keyframes float {
-  from {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-10vh) scale(1);
-    opacity: 0;
-  }
+  from { transform: translateY(100vh) scale(0); opacity: 0; }
+  20% { opacity: 1; }
+  to { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
+/* --- Game Components --- */
+
+/* Mode Buttons */
+.mode-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mode-btn {
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, var(--color-gold), #ffed4e);
+  color: var(--bg-dark);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 15px var(--color-gold-glow);
+}
+
+.mode-btn.inactive {
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--color-gold);
+  border-color: var(--color-gold-dim);
+}
+
+/* Guess Cards */
 .guess-card {
   backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  border: 1px solid var(--color-gold-dim);
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
   animation: slideInUp 0.5s ease-out;
 }
 
 @keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
+/* Flip Cells */
 .attribute-cell {
   perspective: 1000px;
   position: relative;
@@ -119,8 +142,7 @@ h1, h2, h3 {
 
 .cell-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform-style: preserve-3d;
 }
@@ -131,8 +153,7 @@ h1, h2, h3 {
 
 .cell-front, .cell-back {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
@@ -151,11 +172,13 @@ h1, h2, h3 {
   transform: rotateY(180deg);
   padding: 8px;
   text-align: center;
+  /* Default incorrect state */
   background: linear-gradient(135deg, #ef4444, #dc2626);
   border: 2px solid #fca5a5;
   box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
 }
 
+/* Color States */
 .cell-back.correct {
   background: linear-gradient(135deg, #10b981, #059669) !important;
   border: 2px solid #34d399 !important;
@@ -169,11 +192,10 @@ h1, h2, h3 {
 }
 
 .cell-back.incorrect {
-  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-  border: 2px solid #fca5a5 !important;
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.6) !important;
+  /* Inherits default style */
 }
 
+/* Cell Typography */
 .cell-label {
   font-size: 11px;
   opacity: 0.7;
@@ -194,19 +216,14 @@ h1, h2, h3 {
 }
 
 @keyframes popIn {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
+/* Inputs & UI */
 input:focus {
-  box-shadow: 0 0 10px #ffd700;
+  box-shadow: 0 0 10px var(--color-gold);
   outline: none;
 }
 
@@ -215,60 +232,19 @@ input:focus {
 }
 
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 button {
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
-
-button:hover {
-  transform: translateY(-2px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-.mode-toggle {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.mode-btn {
-  padding: 8px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.mode-btn.active {
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-  color: #1a103d;
-  border-color: #ffd700;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-}
-
-.mode-btn.inactive {
-  background: rgba(255, 215, 0, 0.1);
-  color: #ffd700;
-  border-color: rgba(255, 215, 0, 0.3);
-}
+button:hover { transform: translateY(-2px); }
+button:active { transform: translateY(0); }
 
 .stats-display {
   text-align: center;
-  color: #ffd700;
+  color: var(--color-gold);
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 14px;

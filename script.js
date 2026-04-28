@@ -15,6 +15,17 @@ const CONFIG = {
   }
 };
 
+const ADJACENT_PATHWAYS = [
+  ['Visionary', 'Sun', 'Tyrant', 'White Tower', 'Hanged Man'],
+  ['Fool', 'Error', 'Door'],
+  ['Mother', 'Moon'],
+  ['Abyss', 'Chained'],
+  ['Darkness', 'Death', 'Twilight Giant'],
+  ['Red Priest', 'Demoness'],
+  ['Black Emperor', 'Justiciar'],
+  ['Paragon', 'Hermit']
+];
+
 
 const UI = {
   input: document.getElementById('guessInput'),
@@ -30,6 +41,7 @@ const UI = {
   statsDisplay: document.getElementById('statsDisplay'),
   dailyBtn: document.getElementById('dailyBtn'),
   randomBtn: document.getElementById('randomBtn'),
+  dailyDateDisplay: document.getElementById('dailyDateDisplay'),
 };
 
 
@@ -62,6 +74,15 @@ const game = {
     UI.errorMsg.textContent = '';
     UI.suggestions.classList.add('hidden');
     UI.inputSection.style.display = 'block';
+
+    if (this.mode === 'daily') {
+      const today = new Date();
+      const dateString = today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      UI.dailyDateDisplay.textContent = `📅 ${dateString}`;
+      UI.dailyDateDisplay.classList.remove('hidden');
+    } else {
+      UI.dailyDateDisplay.classList.add('hidden');
+    }
     
     this.render();
   },
@@ -158,7 +179,20 @@ const game = {
       .slice(0, 5);
   },
 
-  compareAttributes(val1, val2) {
+  checkAdjacency(pathway1, pathway2) {
+    if (!pathway1 || !pathway2) return false;
+    const p1 = Array.isArray(pathway1) ? pathway1 : [pathway1];
+    const p2 = Array.isArray(pathway2) ? pathway2 : [pathway2];
+    
+    for (const group of ADJACENT_PATHWAYS) {
+      if (p1.some(p => group.includes(p)) && p2.some(p => group.includes(p))) {
+        return true;
+      }
+    }
+    return false;
+  },
+
+  compareAttributes(val1, val2, key) {
     const arr1 = Array.isArray(val1) ? val1 : [val1];
     const arr2 = Array.isArray(val2) ? val2 : [val2];
     
@@ -169,6 +203,11 @@ const game = {
     // Partial match
     const isPartial = arr1.some(v => arr2.includes(v));
     if (isPartial) return 'close';
+
+    // Adjacent match for pathways
+    if (key === 'pathway' && this.checkAdjacency(arr1, arr2)) {
+      return 'close'; // Retourne la classe "close" (qui s'affiche en jaune/orange)
+    }
     
     return 'incorrect';
   },
@@ -268,7 +307,7 @@ const game = {
 
       if (!isGEmpty) {
         display = Array.isArray(gVal) ? gVal.join(', ') : gVal;
-        status = this.compareAttributes(gVal, tVal);
+        status = this.compareAttributes(gVal, tVal, attr.key);
       } else if (isTEmpty) {
         status = 'correct'; // Both empty
       }

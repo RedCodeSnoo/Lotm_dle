@@ -99,7 +99,7 @@ const game = {
   },
 
   // Core Game Logic
-  submitGuess() {
+submitGuess() {
     if (this.state !== 'playing') return;
 
     const val = UI.input.value.trim().toLowerCase();
@@ -134,8 +134,33 @@ const game = {
     // Check Win/Loss
     if (guessedChar.id === this.target.id) {
       this.handleWin();
-    } else if (this.guesses.length >= CONFIG.maxGuesses) {
-      this.handleLoss();
+    } else {
+      // NOUVEAU : Vérification du "Clone" (100% de stats identiques mais mauvais personnage)
+      const isClone = CONFIG.attributes.every(attr => {
+        const gVal = guessedChar[attr.key];
+        const tVal = this.target[attr.key];
+        
+        // On reprend la logique de ta fonction createCardHTML
+        const isGEmpty = gVal === -1 || gVal === 'None';
+        const isTEmpty = tVal === -1 || tVal === 'None';
+        
+        if (!isGEmpty) {
+          return this.compareAttributes(gVal, tVal, attr.key) === 'correct';
+        } else if (isTEmpty) {
+          return true; // Les deux sont vides
+        }
+        return false;
+      });
+
+      // Si toutes les stats correspondent, on affiche l'avertissement
+      if (isClone) {
+        UI.errorMsg.textContent = "All green! But it's another character with the exact same stats 👀";
+      }
+
+      // Vérification de la défaite
+      if (this.guesses.length >= CONFIG.maxGuesses) {
+        this.handleLoss();
+      }
     }
 
     this.render();

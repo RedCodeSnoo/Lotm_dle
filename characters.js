@@ -76,7 +76,7 @@ const CHARACTERS = [
     { id: 67, name: 'Ince Zangwill', gender: 'Male', species: ['Human'], pathway: 'Darkness', sequence: 4, volume: 1, affiliation: ['❌'], epoch: 'Fifth Epoch' },
     { id: 68, name: 'Jahn Kottman', gender: 'Male', species: ['Human'], pathway: ['Tyrant'], sequence: 3, volume: 3, affiliation: ['Church of the Lord of Storms'], epoch: 'Fifth Epoch' },
     { id: 69, name: 'Kalvetua', gender: 'Male', species: ['Sea Serpent Spirit'], pathway: ['Tyrant'], sequence: 3, volume: 3, affiliation: ['❌'], epoch: 'Fifth Epoch' },
-    { id: 70, name: 'Katarina Pelle', gender: 'Female', species: ['Human'], pathway: ['Demoness'], sequence: 3, volume: 1, affiliation: ['Demoness Sect'], epoch: 'Fifth Epoch' },
+    { id: 70, name: 'Katarina Pelle', gender: 'Female', species: ['Human'], pathway: ['Demoness'], sequence: 3, volume: 1, affiliation: ['Demoness Sect'], epoch: 'Fourth Epoch' },
     { id: 71, name: 'Kisma', gender: 'Male', species: ['Human'], pathway: ['Hanged Man'], sequence: 4, volume: 2, affiliation: ['Aurora Order'], epoch: 'Fifth Epoch' },
     { id: 72, name: 'Klarman', gender: 'Male', species: ['Human'], pathway: ['Moon'], sequence: 4, volume: 2, affiliation: ['Rose School of Thought'], epoch: 'Fifth Epoch' },
     { id: 73, name: 'Leomaster', gender: 'Male', species: ['Human'], pathway: ['Hanged Man'], sequence: 4, volume: 3, affiliation: ['Aurora Order'], epoch: 'Fifth Epoch' },
@@ -152,7 +152,7 @@ const CHARACTERS = [
 
 
     // Not Beyonders
-    { id: 137, name: 'Aaron Ceres', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['❌'], epoch: 'Fifth Epoch' },
+    { id: 137, name: 'Aaron Ceres', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['Quelaag Club'], epoch: 'Fifth Epoch' },
     { id: 138, name: 'Alice Moretti', gender: 'Female', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 8, affiliation: ['❌'], epoch: 'Fifth Epoch' },
     { id: 139, name: 'Benson Moretti', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 1, affiliation: ['❌'], epoch: 'Fifth Epoch' },
     { id: 140, name: 'Caitlyn Hall', gender: 'Female', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['❌'], epoch: 'Fifth Epoch' },
@@ -182,5 +182,7 @@ const CHARACTERS = [
     { id: 160, name: 'Darkwill', gender: 'Male', species: ['Human'], pathway: ['Moon'], sequence: 8, volume: 1, affiliation: ['Life School of Thought'], epoch: 'Fifth Epoch' },
     { id: 161, name: 'Harry (Darkwill owl)', gender: 'Male', species: ['Owl'], pathway: ['Visionary'], sequence: 9, volume: 3, affiliation: ['❌'], epoch: 'Fifth Epoch' },
     { id: 162, name: 'Jurgen Cooper', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['❌'], epoch: 'Fifth Epoch' },
-    { id: 163, name: 'Talim Dumont', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['❌'], epoch: 'Fifth Epoch' },
+    { id: 163, name: 'Talim Dumont', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['Quelaag Club'], epoch: 'Fifth Epoch' },
+    { id: 164, name: 'Brody', gender: 'Male', species: ['Cat'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['❌'], epoch: 'Fifth Epoch' },
+    { id: 165, name: 'Mike Joseph', gender: 'Male', species: ['Human'], pathway: ['❌'], sequence: '❌', volume: 2, affiliation: ['Quelaag Club'], epoch: 'Fifth Epoch' },
 ]

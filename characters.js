@@ -58,7 +58,7 @@ const CHARACTERS = [
 
     { id: 50, name: 'Alger Wilson', gender: 'Male', species: ['Human','Elf'], pathway: 'Tyrant', sequence: 4, volume: 1, affiliation: ['Tarot Club','Church of the Lord of Storms'], epoch: 'Fifth Epoch' },
     { id: 51, name: 'Audrey Hall', gender: 'Female', species: ['Human'], pathway: 'Visionary', sequence: 3, volume: 1, affiliation: ['Tarot Club','Psychology Alchemists'], epoch: 'Fifth Epoch' },
-    { id: 52, name: 'Derrick Berg', gender: 'Male', species: ['Human'], pathway: 'Sun', sequence: 4, volume: 1, affiliation: ['Tarot Club','City Of Silver'], epoch: 'Fifth Epoch' },
+    { id: 52, name: 'Derrick Berg', gender: 'Male', species: ['Human'], pathway: 'Sun', sequence: 4, volume: 1, affiliation: ['Tarot Club','City of Silver'], epoch: 'Fifth Epoch' },
     { id: 53, name: 'Fors Wall', gender: 'Female', species: ['Human'], pathway: 'Door', sequence: 4, volume: 1, affiliation: ['Tarot Club','Abraham Family'], epoch: 'Fifth Epoch' },
     { id: 54, name: 'Emlyn White', gender: 'Male', species: ['Sanguine'], pathway: 'Moon', sequence: 4, volume: 2, affiliation: ['Tarot Club','Sanguines'], epoch: 'Fifth Epoch' },
     { id: 55, name: 'Cattleya', gender: 'Female', species: ['Human'], pathway: 'Hermit', sequence: 3, volume: 3, affiliation: ['Tarot Club','Moses Ascetic Order'], epoch: 'Fifth Epoch' },
